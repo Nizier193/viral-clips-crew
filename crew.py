@@ -8,7 +8,7 @@ from datetime import datetime
 
 # Third party imports
 from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from crewai import Agent, Task, Crew, Process
 
 # Local application imports
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Load environment variables
 load_dotenv()
 
-gemini_api_key = os.getenv('GEMINI_API_KEY')
+openai_api_key = os.getenv('OPENAI_API_KEY')
 
 # Ensure the Path is correctly imported
 if 'Path' not in globals():
@@ -69,10 +69,10 @@ def main(extracts):
         verbose=True,
         max_iter=1,
         max_rpm=1,
-        llm=ChatGoogleGenerativeAI(model="gemini-1.5-pro-exp-0801",
-                                   verbose=True,
-                                   temperature=0.0,
-                                   google_api_key=gemini_api_key)
+        llm=ChatOpenAI(model="gpt-4",
+                       verbose=True,
+                       temperature=0.0,
+                       openai_api_key=openai_api_key,)
     )
 
     subtitler_agent_2 = Agent(
@@ -92,10 +92,10 @@ def main(extracts):
         verbose=True,
         max_iter=1,
         max_rpm=1,
-        llm=ChatGoogleGenerativeAI(model="gemini-1.5-pro-exp-0801",
-                                   verbose=True,
-                                   temperature=0.0,
-                                   google_api_key=gemini_api_key)
+        llm=ChatOpenAI(model="gpt-4",
+                       verbose=True,
+                       temperature=0.0,
+                       openai_api_key=openai_api_key)
     )
 
     subtitler_agent_3 = Agent(
@@ -115,10 +115,10 @@ def main(extracts):
         verbose=True,
         max_iter=1,
         max_rpm=1,
-        llm=ChatGoogleGenerativeAI(model="gemini-1.5-pro-exp-0801",
-                                   verbose=True,
-                                   temperature=0.0,
-                                   google_api_key=gemini_api_key)
+        llm=ChatOpenAI(model="gpt-4",
+                       verbose=True,
+                       temperature=0.0,
+                       openai_api_key=openai_api_key)
     )
 
     return_subtitles_1 = Task(

@@ -25,7 +25,7 @@ warnings.filterwarnings("ignore")
 load_dotenv()
 
 # List of required environment variables
-required_vars = ['OPENAI_API_KEY', 'GEMINI_API_KEY']
+required_vars = ['OPENAI_API_KEY']
 
 """
 This for loop checks if the required environment variables are set. 
